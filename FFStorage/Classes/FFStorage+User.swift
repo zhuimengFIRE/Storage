@@ -1,6 +1,6 @@
 //
-//  Storage+User.swift
-//  Storage
+//  FFStorage+User.swift
+//  FFStorage
 //
 //  用户模块本地存储
 //  新增其他模块时，参照此文件新建对应扩展文件
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Storage {
+extension FFStorage {
     
     // MARK: - 用户模块
     
@@ -17,13 +17,13 @@ extension Storage {
      *
      * 使用示例：
      * ```swift
-     * Storage.User.token = "abc123"
-     * let token = Storage.User.token
+     * FFStorage.User.token = "abc123"
+     * let token = FFStorage.User.token
      *
-     * Storage.User.info = userModel
-     * let user = Storage.User.info
+     * FFStorage.User.info = userModel
+     * let user = FFStorage.User.info
      *
-     * Storage.User.clear()
+     * FFStorage.User.clear()
      * ```
      */
     public enum User {
@@ -71,7 +71,7 @@ extension Storage {
         /// 当前登录用户信息（存储 Codable 对象）
         // public static var info: UserModel {
         //     get { fetch(forKey: Key.info, defaultValue: UserModel()) }
-        //     set { store(newValue, forKey: Key.info) }
+        //     new { store(newValue, forKey: Key.info) }
         // }
         
         // MARK: - 清除用户数据

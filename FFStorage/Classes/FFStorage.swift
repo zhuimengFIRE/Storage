@@ -1,6 +1,6 @@
 //
-//  Storage.swift
-//  Storage
+//  FFStorage.swift
+//  FFStorage
 //
 //  本地存储工具类
 //  基于 UserDefaults 封装，统一管理所有本地持久化数据
@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: - Storage
+// MARK: - FFStorage
 
 /**
  * 本地存储工具类
@@ -16,19 +16,19 @@ import Foundation
  * 使用示例：
  * ```swift
  * // 存储
- * Storage.store("张三", forKey: "username")
- * Storage.store(true, forKey: "isLogin")
+ * FFStorage.store("张三", forKey: "username")
+ * FFStorage.store(true, forKey: "isLogin")
  *
  * // 读取
- * let name: String = Storage.fetch(forKey: "username", defaultValue: "")
- * let isLogin: Bool = Storage.fetch(forKey: "isLogin", defaultValue: false)
+ * let name: String = FFStorage.fetch(forKey: "username", defaultValue: "")
+ * let isLogin: Bool = FFStorage.fetch(forKey: "isLogin", defaultValue: false)
  *
  * // 使用模块化扩展（推荐）
- * Storage.User.token = "xxx"
- * let token = Storage.User.token
+ * FFStorage.User.token = "xxx"
+ * let token = FFStorage.User.token
  * ```
  */
-public enum Storage {
+public enum FFStorage {
     
     // MARK: - 存数据
     
@@ -43,7 +43,7 @@ public enum Storage {
             let data = try JSONEncoder().encode(value)
             UserDefaults.standard.setValue(data, forKey: forKey)
         } catch {
-            print("❌ [Storage] 无法存储 [\(forKey)]: \(error)")
+            print("❌ [FFStorage] 无法存储 [\(forKey)]: \(error)")
         }
     }
     
@@ -63,7 +63,7 @@ public enum Storage {
         do {
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
-            print("❌ [Storage] 无法读取 [\(forKey)]: \(error)")
+            print("❌ [FFStorage] 无法读取 [\(forKey)]: \(error)")
             return defaultValue
         }
     }

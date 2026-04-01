@@ -1,15 +1,15 @@
 //
-//  Storage+Game2048.swift
-//  Storage
+//  FFStorage+Game2048.swift
+//  FFStorage
 //
 //  2048 游戏存储扩展
 //
 
 import Foundation
 
-// MARK: - Storage.Game2048
+// MARK: - FFStorage.Game2048
 
-extension Storage {
+extension FFStorage {
     
     /// 2048 游戏相关存储
     public enum Game2048 {

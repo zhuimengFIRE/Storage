@@ -1,8 +1,8 @@
-# Storage
+# FFStorage
 
-[![Version](https://img.shields.io/cocoapods/v/Storage.svg?style=flat)](https://cocoapods.org/pods/Storage)
-[![License](https://img.shields.io/cocoapods/l/Storage.svg?style=flat)](https://cocoapods.org/pods/Storage)
-[![Platform](https://img.shields.io/cocoapods/p/Storage.svg?style=flat)](https://cocoapods.org/pods/Storage)
+[![Version](https://img.shields.io/cocoapods/v/FFStorage.svg?style=flat)](https://cocoapods.org/pods/FFStorage)
+[![License](https://img.shields.io/cocoapods/l/FFStorage.svg?style=flat)](https://cocoapods.org/pods/FFStorage)
+[![Platform](https://img.shields.io/cocoapods/p/FFStorage.svg?style=flat)](https://cocoapods.org/pods/FFStorage)
 
 基于 UserDefaults 的 Swift 本地存储封装，提供类型安全的存储方案。
 
@@ -19,7 +19,7 @@
 ### CocoaPods
 
 ```ruby
-pod 'Storage', '~> 1.0.0'
+pod 'FFStorage', '~> 1.0.0'
 ```
 
 ### Swift Package Manager
@@ -35,23 +35,23 @@ dependencies: [
 ### 基础用法
 
 ```swift
-import Storage
+import FFStorage
 
 // 存储数据
-Storage.store("张三", forKey: "username")
-Storage.store(25, forKey: "age")
-Storage.store(true, forKey: "isLogin")
+FFStorage.store("张三", forKey: "username")
+FFStorage.store(25, forKey: "age")
+FFStorage.store(true, forKey: "isLogin")
 
 // 读取数据
-let username: String = Storage.fetch(forKey: "username", defaultValue: "")
-let age: Int = Storage.fetch(forKey: "age", defaultValue: 0)
-let isLogin: Bool = Storage.fetch(forKey: "isLogin", defaultValue: false)
+let username: String = FFStorage.fetch(forKey: "username", defaultValue: "")
+let age: Int = FFStorage.fetch(forKey: "age", defaultValue: 0)
+let isLogin: Bool = FFStorage.fetch(forKey: "isLogin", defaultValue: false)
 
 // 删除数据
-Storage.remove(forKey: "username")
+FFStorage.remove(forKey: "username")
 
 // 清空所有数据（慎用）
-Storage.clear()
+FFStorage.clear()
 ```
 
 ### 存储 Codable 对象
@@ -65,18 +65,18 @@ struct User: Codable {
 
 // 存储
 let user = User(id: "001", name: "张三", email: "zhangsan@example.com")
-Storage.store(user, forKey: "current_user")
+FFStorage.store(user, forKey: "current_user")
 
 // 读取
-let currentUser: User = Storage.fetch(forKey: "current_user", defaultValue: User(id: "", name: "", email: ""))
+let currentUser: User = FFStorage.fetch(forKey: "current_user", defaultValue: User(id: "", name: "", email: ""))
 ```
 
 ### 模块化扩展（推荐）
 
-Storage 支持通过扩展创建模块化的存储方案：
+FFStorage 支持通过扩展创建模块化的存储方案：
 
 ```swift
-extension Storage {
+extension FFStorage {
     enum User {
         private enum Key {
             static let token = "user_token"
@@ -101,27 +101,27 @@ extension Storage {
 }
 
 // 使用
-Storage.User.token = "abc123"
-Storage.User.isLogin = true
+FFStorage.User.token = "abc123"
+FFStorage.User.isLogin = true
 
 // 退出登录
-Storage.User.clear()
+FFStorage.User.clear()
 ```
 
 ## 内置模块
 
-Storage 提供了以下内置模块：
+FFStorage 提供了以下内置模块：
 
 ### User 模块
 
 用户相关的存储封装：
 
 ```swift
-Storage.User.token      // 登录 Token
-Storage.User.userId     // 用户 ID
-Storage.User.username   // 用户名
-Storage.User.isLogin    // 登录状态
-Storage.User.clear()    // 清除用户数据
+FFStorage.User.token      // 登录 Token
+FFStorage.User.userId     // 用户 ID
+FFStorage.User.username   // 用户名
+FFStorage.User.isLogin    // 登录状态
+FFStorage.User.clear()    // 清除用户数据
 ```
 
 ## 注意事项
@@ -141,4 +141,4 @@ zhuimengFIRE, 1670122794@qq.com
 
 ## 许可证
 
-Storage 使用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
+FFStorage 使用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
